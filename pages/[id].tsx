@@ -77,10 +77,6 @@ export default function Main(){
 
 
     function handlePaymentChange(memberIndex: number, inputKey: string, inputValue: string) {
-        const num = parseInt(inputValue, 10)
-        if(isNaN(num)){
-            return
-        }
         setPayment(prevPayment => {
             const newPayment = [...prevPayment];
             const memberPayments = newPayment[memberIndex] || {};
