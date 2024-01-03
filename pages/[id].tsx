@@ -183,14 +183,14 @@ export default function Main(){
             <input placeholder="Name" className="mb-2 border-[1px] border-[#bdc3c7] h-[50px] pl-2" value={people[memberIndex]?.name} onChange={(e) => handleNameChange(e.target.value, memberIndex)}/>
             {!people[memberIndex].name && error ? <p className="text-[red]">{error}</p> : ''}
             <div className="flex gap-2 items-center">
-                <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2" placeholder="what?" key={`reason-input-${memberIndex}`} value={reason[memberIndex]?.[`reason-${memberIndex}`] || ''} onChange={(e) => handleReasonChange(memberIndex, `reason-${memberIndex}`, e.target.value)}/>
-                <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2" placeholder="how much?" type="number" key={`main-input-${memberIndex}`} value={payment[memberIndex]?.[`main-${memberIndex}`] || ''} onChange={(e) => handlePaymentChange(memberIndex, `main-${memberIndex}`, e.target.value)}/>
+                <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2 lg:w-[200px] w-[150px]" placeholder="what?" key={`reason-input-${memberIndex}`} value={reason[memberIndex]?.[`reason-${memberIndex}`] || ''} onChange={(e) => handleReasonChange(memberIndex, `reason-${memberIndex}`, e.target.value)}/>
+                <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2 lg:w-[200px] w-[150px]" placeholder="how much?" type="number" key={`main-input-${memberIndex}`} value={payment[memberIndex]?.[`main-${memberIndex}`] || ''} onChange={(e) => handlePaymentChange(memberIndex, `main-${memberIndex}`, e.target.value)}/>
             </div>
             <div>
                 {member.additionalInputs.map((input, inputIndex) => (
                     <div key={input.id} className="flex gap-2 items-center mt-1">
-                        <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2" placeholder="what?" value={reason[memberIndex]?.[input.id] || ''} onChange={(e) => handleReasonChange(memberIndex, input.id, e.target.value)}/>
-                        <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2" placeholder="how much?" type="number" value={payment[memberIndex]?.[input.id] || ''} onChange={(e) => handlePaymentChange(memberIndex, input.id, e.target.value)}/>
+                        <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2 lg:w-[200px] w-[150px]" placeholder="what?" value={reason[memberIndex]?.[input.id] || ''} onChange={(e) => handleReasonChange(memberIndex, input.id, e.target.value)}/>
+                        <input className="border-[1px] border-[#bdc3c7] h-[50px] pl-2 lg:w-[200px] w-[150px]" placeholder="how much?" type="number" value={payment[memberIndex]?.[input.id] || ''} onChange={(e) => handlePaymentChange(memberIndex, input.id, e.target.value)}/>
                         <button onClick={() => deleteInput(input.id)}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
