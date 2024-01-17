@@ -8,7 +8,7 @@ let inputCounter = 0;
 export default function Main(){
 
     interface Member{
-        additionalInputs: { id: string; value: string }[];
+        additionalInputs: { id: string }[];
     }
 
     interface People{
@@ -84,25 +84,25 @@ export default function Main(){
             newPayment[memberIndex] = memberPayments;
             return newPayment;
         });
-        setMembers(prevMembers => {
-            const newMembers = prevMembers.map((member, index) => {
-                if (index === memberIndex) {
+        // setMembers(prevMembers => {
+        //     const newMembers = prevMembers.map((member, index) => {
+        //         if (index === memberIndex) {
     
-                    // Update the target input in additionalInputs
-                    const updatedInputs = member.additionalInputs.map((input, idx) => {
-                        if (input.id === inputKey) { // Use the ID to find the correct input
-                            return { ...input, value: inputValue };
-                        }
-                        return input;
-                    });
+        //             // Update the target input in additionalInputs
+        //             const updatedInputs = member.additionalInputs.map((input, idx) => {
+        //                 if (input.id === inputKey) { // Use the ID to find the correct input
+        //                     return { ...input, value: inputValue };
+        //                 }
+        //                 return input;
+        //             });
     
-                    return { ...member, additionalInputs: updatedInputs };
-                }
-                return member;
-            });
+        //             return { ...member, additionalInputs: updatedInputs };
+        //         }
+        //         return member;
+        //     });
     
-            return newMembers;
-        });
+        //     return newMembers;
+        // });
         console.log(members)
         console.log(payment)
     }
@@ -124,25 +124,25 @@ export default function Main(){
             newReason[memberIndex] = memberReasons;
             return newReason;
         });
-        setMembers(prevMembers => {
-            const newMembers = prevMembers.map((member, index) => {
-                if (index === memberIndex) {
+        // setMembers(prevMembers => {
+        //     const newMembers = prevMembers.map((member, index) => {
+        //         if (index === memberIndex) {
     
-                    // Update the target input in additionalInputs
-                    const updatedInputs = member.additionalInputs.map((input, idx) => {
-                        if (input.id === inputKey) { // Use the ID to find the correct input
-                            return { ...input, value: inputValue };
-                        }
-                        return input;
-                    });
+        //             // Update the target input in additionalInputs
+        //             const updatedInputs = member.additionalInputs.map((input, idx) => {
+        //                 if (input.id === inputKey) { // Use the ID to find the correct input
+        //                     return { ...input, value: inputValue };
+        //                 }
+        //                 return input;
+        //             });
     
-                    return { ...member, additionalInputs: updatedInputs };
-                }
-                return member;
-            });
+        //             return { ...member, additionalInputs: updatedInputs };
+        //         }
+        //         return member;
+        //     });
     
-            return newMembers;
-        });
+        //     return newMembers;
+        // });
         console.log(reason)
         console.log(members)
     }
@@ -166,6 +166,14 @@ export default function Main(){
                 return newPaymentObj;
             });
         });
+
+        setReason(prevReason => {
+            return prevReason.map(reasonObj => {
+                const newReasonObj = {...reasonObj}
+                delete newReasonObj[uniqueId]
+                return newReasonObj
+            })
+        })
         console.log(members)
         console.log(payment)
     }
@@ -224,7 +232,7 @@ export default function Main(){
                     ...member,
                     additionalInputs: [
                         ...member.additionalInputs,
-                        { id: newId, value: '' }
+                        { id: newId }
                     ]
                 };
             }
